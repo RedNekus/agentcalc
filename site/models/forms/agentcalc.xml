@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <fieldset name="datails" label="COM_AGENTCALC_ITEM_DETAILS">
+        <field
+            name="price"
+            type="text"
+            label="COM_AGENTCALC_PRICE_LABEl"
+            description="COM_AGENTCALC_PRICE_DESCRIPTION"
+            class="inputbox"
+            required="true"
+            default="0"
+            filter="integer"
+            maxlength="10"
+        />
+        <field
+            name="payments"
+            type="text"
+            label="COM_AGENTCALC_PAYMENTS_LABEl"
+            description="COM_AGENTCALC_PAYMENTS_DESCRIPTION"
+            class="inputbox"
+            required="true"
+            default="0"
+            filter="integer"
+            maxlength="3"
+        />
+        <field
+            name="monthly"
+            type="text"
+            label="COM_AGENTCALC_MONTHLY_LABEl"
+            description="COM_AGENTCALC_MONTHLY_DESCRIPTION"
+            class="inputbox"
+            required="true"
+            default="0"
+            filter="integer"
+            maxlength="10"
+        />
+        <field
+            name="total"
+            type="text"
+            label="COM_AGENTCALC_TOTAL_LABEl"
+            description="COM_AGENTCALC_TOTAL_DESCRIPTION"
+            class="inputbox"
+            required="true"
+            default="0"
+            filter="integer"
+            maxlength="10"
+        />
+    </fieldset>
+</form>
