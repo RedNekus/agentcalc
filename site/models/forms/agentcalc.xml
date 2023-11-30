@@ -4,7 +4,7 @@
         <field
             name="price"
             type="text"
-            label="COM_AGENTCALC_PRICE_LABEl"
+            label="COM_AGENTCALC_PRICE_LABEL"
             description="COM_AGENTCALC_PRICE_DESCRIPTION"
             class="inputbox"
             required="true"
@@ -13,37 +13,16 @@
             maxlength="10"
         />
         <field
-            name="payments"
+            name="prepayment"
             type="text"
-            label="COM_AGENTCALC_PAYMENTS_LABEl"
-            description="COM_AGENTCALC_PAYMENTS_DESCRIPTION"
+            label="COM_AGENTCALC_PREPAYMENT_LABEL"
+            description="COM_AGENTCALC_PREPAYMENT_DESCRIPTION"
             class="inputbox"
             required="true"
             default="0"
             filter="integer"
             maxlength="3"
         />
-        <field
-            name="monthly"
-            type="text"
-            label="COM_AGENTCALC_MONTHLY_LABEl"
-            description="COM_AGENTCALC_MONTHLY_DESCRIPTION"
-            class="inputbox"
-            required="true"
-            default="0"
-            filter="integer"
-            maxlength="10"
-        />
-        <field
-            name="total"
-            type="text"
-            label="COM_AGENTCALC_TOTAL_LABEl"
-            description="COM_AGENTCALC_TOTAL_DESCRIPTION"
-            class="inputbox"
-            required="true"
-            default="0"
-            filter="integer"
-            maxlength="10"
-        />
+
     </fieldset>
 </form>

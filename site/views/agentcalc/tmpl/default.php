@@ -3,7 +3,7 @@ defined('_JEXEC') or exit();
 Joomla\CMS\HTML\HTMLHelper::_('behavior.formvalidator');
 ?>
 <h1>Страница калькулятора</h1>
-<form action="index.php?option=com_coato&layout=edit&id=<?=$this->item->id ?? "0";?>" method="POST" id="adminForm" name="adminForm" class="form-validate">
+<form action="index.php?option=com_agentcalc&view=agentcalc&format=json" method="POST" id="agetntcalcForm" name="agetntcalcForm" class="form-validate">
     <div class="form-horizontal">
         <?php foreach($this->form->getFieldsets() as $name => $fieldset) :?>
             <fieldset class="adminform">
@@ -20,9 +20,23 @@ Joomla\CMS\HTML\HTMLHelper::_('behavior.formvalidator');
                 </div>
             </fieldset>
         <?php endforeach;?>
-        <button type="button" class="btn btn-primary" onclick="Joomla.submitbutton('myform.submit')">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 
     <input type="hidden" name="task" value="">
     <?php echo Joomla\CMS\HTML\HTMLHelper::_('form.token'); ?>
 </form>
+
+<table class="agentcalc__">
+    <thead>
+        <tr>
+            <th>Срок, месяц</th>
+            <th>Стоимость предмета Лизинга</th>
+            <th>Количество последующих платежей</th>
+            <th>Ежемесячный платеж</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>

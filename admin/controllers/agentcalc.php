@@ -1,5 +1,5 @@
 <?php
-defined('_JEXEC') or exit();
+defined('_JEXEC') or die('Restricted access');
 
 class AgentcalcControllerAgentcalc extends JControllerAdmin
 {
