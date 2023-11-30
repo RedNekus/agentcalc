@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" method="upgrade">
+    <name>COM_AGENTCALC</name>
+    <author>Red.Nekus</author>
+    <creationDate>December 2023</creationDate>
+    <copyright>Red.Nekus</copyright>
+    <license>GPL v3</license>
+    <authorEmail>admin@joomla.org</authorEmail>
+    <version>1.0</version>
+    <description>COM_AGENTCALC_DESCRIPTION</description>
+
+    <namespace path="src/">ResNekus\Component\AgentCalc</namespace>
+
+    <files folder="site">
+        <folder>language</folder>
+        <folder>models</folder>
+        <folder>views</folder>
+
+        <filename>agentcalc.php</filename>
+        <filename>controller.php</filename>
+    </files>
+    <languages folder="site/language">
+        <language tag="ru_RU">ru-RU/ru-RU.com_agentcalc.ini</language>
+        <language tag="ru_RU">ru-RU/ru-RU.com_agentcalc.sys.ini</language>
+    </languages>
+    <media destination="com_agentcalc" folder="media">
+        <folder>js</folder>
+    </media>
+
+    <administration>
+        <menu link="index.php?option=com_agentcalc">COM_AGENTCALC</menu>
+        <files folder="admin">
+            <folder>language</folder>
+            <folder>controllers</folder>
+            <folder>models</folder>
+            <folder>views</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+
+            <filename>agentcalc.php</filename>
+            <filename>controller.php</filename>
+            <filename>config.xml</filename>
+        </files>
+        <languages folder="admin/language">
+            <language tag="ru_RU">ru-RU/ru-RU.com_agentcalc.ini</language>
+            <language tag="ru_RU">ru-RU/ru-RU.com_agentcalc.sys.ini</language>
+        </languages>
+    </administration>
+
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+</extension>
