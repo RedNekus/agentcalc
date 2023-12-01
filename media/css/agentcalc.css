@@ -1,0 +1,50 @@
+.agentcalc__form .form-control-feedback {
+    display: block;
+    color: #dc3545;
+}
+
+.agentcalc__form .inputbox {
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50rem;
+    box-shadow: inset 0 1px 0 hsl(0deg 0% 100% / 15%);
+    background-color: #fff;
+    padding: 0 42px 0 24px;
+    width: 100%;
+    border: 0 solid transparent;
+}
+.agentcalc__form .control-label {
+    margin-bottom: 10px;
+}
+.agentcalc__fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    column-gap: 30px;
+    align-items: end;
+    margin-bottom: 50px;
+    color: white;
+}
+
+
+.agentcalc__table {
+    display: none;
+    background-color:  white;
+    padding: 25px;
+    width: 100%;
+}
+.agentcalc__table.is-filled {
+    display: table;
+}
+.agentcalc__table th {
+    padding: 12px;
+}
+.agentcalc__table td {
+    text-align: center;
+    padding: 12px;
+}
+.agentcalc__table th {
+    text-align: center;
+}
+.agentcalc__table tbody > tr:nth-child(odd) {
+    background-color: #f8f9fa;
+}

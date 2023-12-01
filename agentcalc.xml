@@ -25,6 +25,7 @@
     </languages>
     <media destination="com_agentcalc" folder="media">
         <folder>js</folder>
+        <folder>css</folder>
     </media>
 
     <administration>

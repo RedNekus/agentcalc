@@ -18,6 +18,6 @@ class AgentcalcViewAgentcalc extends JViewLegacy {
         $this->items = $this->get('Items');
         $this->data = $input->json->getArray() ?? [];
         $this->prepayment = $input->getInt('prepayment');
-        echo new JResponseJson(['price' => $this->data['price'], 'tbody' => $this->loadTemplate('json')] );
+        echo new JResponseJson(['tbody' => $this->loadTemplate('json')] );
     }
 }

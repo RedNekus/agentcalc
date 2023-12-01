@@ -11,7 +11,6 @@ class AgentcalcViewAgentcalc extends BaseHtmlView {
     {
         if (!$this->form = $this->get('Form'))
         {
-            echo "Can't load form<br>";
             return;
         }
         $this->addScripts();
@@ -26,9 +25,7 @@ class AgentcalcViewAgentcalc extends BaseHtmlView {
         $doc = JFactory::getApplication()->getDocument();
         Joomla\CMS\HTML\HTMLHelper::_('bootstrap.framework');
         $doc->addScript(JUri::base() . 'media/com_agentcalc/js/calculate.js');
-
-        /*
-        $doc->addStyleSheet(JURI::root() . "", ['version'=>'auto']);
-        */
+        $doc->addScript(JUri::base() . 'media/com_agentcalc/js/calculate.js');
+        $doc->addStyleSheet(JURI::root() . "media/com_agentcalc/css/agentcalc.css", ['version'=>'auto']);
     }
 }
