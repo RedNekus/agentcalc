@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Content-Type': 'application/json'
             },
             data:  JSON.stringify({
-                'price': formData.get('jform[price]'),
-                'prepayment': formData.get('jform[prepayment]')
+                'price': formData.get('jform[price]').replace(' ', ''),
+                'prepayment': formData.get('jform[prepayment]').replace(' ', '')
             }),
             onSuccess: (response) => {
                 const result = JSON.parse(response);

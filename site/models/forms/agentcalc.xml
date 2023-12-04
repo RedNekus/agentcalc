@@ -8,9 +8,8 @@
             description="COM_AGENTCALC_PRICE_DESCRIPTION"
             class="inputbox"
             required="true"
-            filter="integer"
-            maxlength="10"
-            pattern="[1-9]+\d?"
+            maxlength="14"
+            pattern="([1-9]+(\d{0,2})?(\s\d{0,3}){0,2}\.\d{2})|(0\.(0[1-9]|[1-9]0|[1-9]{2}))"
         />
         <field
             name="prepayment"
@@ -18,10 +17,8 @@
             label="COM_AGENTCALC_PREPAYMENT_LABEL"
             description="COM_AGENTCALC_PREPAYMENT_DESCRIPTION"
             class="inputbox"
-            filter="integer"
-            maxlength="10"
-            pattern="\d+"
+            maxlength="14"
+            pattern="\d{1,3}(\s\d{0,3}){0,2}\.\d{2}"
         />
-
     </fieldset>
 </form>
