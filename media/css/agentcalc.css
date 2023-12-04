@@ -25,15 +25,18 @@
     color: white;
 }
 
-
 .agentcalc__table {
-    display: none;
+    transform: scaleY(0);
+    transform-origin: top left;
     background-color:  white;
     padding: 25px;
     width: 100%;
+    border: 1px solid var(--bs-purple);
+    box-shadow: 2px 2px 7px var(--bs-purple);
+    transition: transform .7s ease-in-out;
 }
 .agentcalc__table.is-filled {
-    display: table;
+    transform: scaleY(1);
 }
 .agentcalc__table th {
     padding: 12px;
