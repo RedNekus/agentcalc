@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 numeralDecimalMark: '.',
                 delimiter: ' ',
                 onValueChanged: (e) => {
-                    if(!e.target.value) {
+                    if(e.target.value ==='') {
                         input.rawValue = '0';
                         input.value = '0';
                     }
