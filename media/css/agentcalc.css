@@ -51,3 +51,48 @@
 .agentcalc__table tbody > tr:nth-child(odd) {
     background-color: #f8f9fa;
 }
+@media (max-width: 1399px) {}
+@media (max-width: 1199px) {}
+@media screen and  (max-width: 991px) {
+    .agentcalc__table th:nth-child(3) {
+        display: none;
+    }
+    .agentcalc__table td {
+        white-space: nowrap;
+    }
+    .agentcalc__table td:nth-child(3) {
+        display: none;
+    }
+    .agentcalc__fieldset {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 20px;
+    }
+    .agentcalc__fieldset > .control-group:nth-child(3) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .agentcalc__fieldset > .control-group:nth-child(3) > button {
+        width: 100%;
+    }
+}
+@media (max-width: 767px) {
+    .agentcalc__fieldset {
+        color: var(--bs-dark);
+    }
+    .agentcalc__form .inputbox {
+        border: 1px solid var(--bs-purple);
+    }
+    .agentcalc__fieldset button {
+        background-color: var(--bs-purple);
+        color: white;
+    }
+    .agentcalc__fieldset button:hover {
+        color: white;
+        background-color: var(--bs-indigo);
+    }
+}
+@media (max-width: 575px) {
+    .agentcalc__table {
+        font-size: 14px;
+    }
+}
