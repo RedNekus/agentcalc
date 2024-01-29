@@ -9,13 +9,17 @@ class AgentcalcModelAgentcalc extends JModelList {
     {
         return $this->loadForm('com_agentcalc.agentcalc', 'agentcalc', ['control' => 'jform', 'load_data' => $loadData]) ?? false;
     }
+    public function getCalc($data = [], $loadData = true): JForm|bool
+    {
+        return $this->loadForm('com_agentcalc.calc', 'calc', ['control' => 'jform', 'load_data' => $loadData]) ?? false;
+    }
     protected function getListQuery(): string
     {
-        $user = Factory::getUser();
+        $user   = Factory::getUser();
         $userId = $user->get('id');
+        $db     = Factory::getContainer()->get('DatabaseDriver');
+        $query  = $db->getQuery(true);
 
-        $db    = Factory::getContainer()->get('DatabaseDriver');
-        $query = $db->getQuery(true);
         $query->select($db->quoteName('companies.max_term'));
         $query->from($db->quoteName('#__pcpartners_companies', 'companies'));
         $query->join('LEFT', $db->quoteName('#__fields_values', 'fields') . ' ON ' . $db->quoteName('companies.id') . ' = ' . $db->quoteName('fields.value'));

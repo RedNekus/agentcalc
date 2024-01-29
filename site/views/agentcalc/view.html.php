@@ -6,6 +6,7 @@ use Joomla\CMS\Factory;
 
 class AgentcalcViewAgentcalc extends BaseHtmlView {
     protected $form;
+    protected $calc;
 
     function display($tpl = null): void
     {
@@ -13,6 +14,7 @@ class AgentcalcViewAgentcalc extends BaseHtmlView {
         {
             return;
         }
+        $this->calc = $this->get('Calc');
         $this->addScripts();
         parent::display($tpl);
     }
