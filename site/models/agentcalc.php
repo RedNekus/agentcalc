@@ -33,18 +33,23 @@ class AgentcalcModelAgentcalc extends JModelList {
         $res = $db->loadObject();
 
         $subQuery = $db->getQuery(true)
-            ->select("MAX(`id`)")
-            ->from("#__agentcalc_settings")
-            ->where("`company_id` = {$company_id} OR `company_id` IS NULL")
-            ->group('`term`')
-            ->order("`term` ASC");
+            ->select("s.remuneration")
+            ->from($db->quoteName("#__agentcalc_settings", "s"))
+            ->where("`settings`.term = s.term  AND (s.company_id = {$company_id} OR s.company_id IS NULL)")
+            ->order("s.company_id DESC")
+            ->setLimit(1);
 
-
+        $subQueryId = $db->getQuery(true)
+            ->select("s.id")
+            ->from($db->quoteName("#__agentcalc_settings", "s"))
+            ->where("`settings`.term = s.term  AND (s.company_id = {$company_id} OR s.company_id IS NULL)")
+            ->order("s.company_id DESC")
+            ->setLimit(1);
         $query = $db->getQuery(true);
-        $query->select([...array_map([$db, 'quoteName'],[
-            'settings.id',
+        $query->select([
+            "($subQueryId) AS id",
             'settings.term',
-            'settings.remuneration'])
+            "($subQuery) AS remuneration"
         ]);
 
         $query->from($db->quoteName('#__agentcalc_settings', 'settings'));
@@ -52,14 +57,16 @@ class AgentcalcModelAgentcalc extends JModelList {
             $query->where( $db->quoteName('settings.term') . ' <=' . $res->max_term);
         }
         if($company_id) {
-            $query->where("`id` IN ({$subQuery})");
+            $query->where( "(" . $db->quoteName('settings.company_id') . ' =' . $company_id . ' OR ' . $db->quoteName('settings.company_id') . ' = 0 OR ' . $db->quoteName('settings.company_id') . ' IS NULL)');
         }
         $query->group('settings.term');
 
         $orderCol	= 'term';
         $orderDirn 	= 'ASC';
 
-        $query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
+        $query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn) );
+        //echo $query;
+        //die();
         return $query;
     }
 }
