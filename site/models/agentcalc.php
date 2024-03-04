@@ -1,6 +1,7 @@
 <?php
 
 use Joomla\CMS\Factory;
+use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
 
 defined('_JEXEC') or exit();
 
@@ -17,6 +18,10 @@ class AgentcalcModelAgentcalc extends JModelList {
     {
         $user   = Factory::getUser();
         $userId = $user->get('id');
+        $customFields = FieldsHelper::getFields('com_users.user',$user, true);
+        $values = array_column($customFields, 'rawvalue', 'name');
+        $company_id = (int)$values['company'];
+
         $db     = Factory::getContainer()->get('DatabaseDriver');
         $query  = $db->getQuery(true);
 
@@ -26,6 +31,14 @@ class AgentcalcModelAgentcalc extends JModelList {
         $query->where( $db->quoteName('fields.item_id') . ' = ' . $userId . ' AND ' . $db->quoteName('fields.field_id').' = ' . $db->quote('29') );
         $db->setQuery($query);
         $res = $db->loadObject();
+
+        $subQuery = $db->getQuery(true)
+            ->select("MAX(`id`)")
+            ->from("#__agentcalc_settings")
+            ->where("`company_id` = {$company_id} OR `company_id` IS NULL")
+            ->group('`term`')
+            ->order("`term` ASC");
+
 
         $query = $db->getQuery(true);
         $query->select([...array_map([$db, 'quoteName'],[
@@ -38,6 +51,10 @@ class AgentcalcModelAgentcalc extends JModelList {
         if($res->max_term) {
             $query->where( $db->quoteName('settings.term') . ' <=' . $res->max_term);
         }
+        if($company_id) {
+            $query->where("`id` IN ({$subQuery})");
+        }
+        $query->group('settings.term');
 
         $orderCol	= 'term';
         $orderDirn 	= 'ASC';

@@ -3,26 +3,37 @@
     <fieldset name="details" label="COM_AGENTCALC_ITEM_DETAILS">
         <field name="id" type="hidden" />
         <field
-                name="term"
-                type="text"
-                label="COM_AGENTCALC_TERM_LABEL"
-                description="COM_AGENTCALC_TERM_DESCRIPTION"
-                class="inputbox"
-                required="true"
-                default="0"
-                filter="integer"
-                maxlength="10"
+            name="term"
+            type="text"
+            label="COM_AGENTCALC_TERM_LABEL"
+            description="COM_AGENTCALC_TERM_DESCRIPTION"
+            class="inputbox"
+            required="true"
+            default="0"
+            filter="integer"
+            maxlength="10"
         />
         <field
-                name="remuneration"
-                type="text"
-                label="COM_AGENTCALC_REMUNERATION_LABEL"
-                description="COM_AGENTCALC_REMUNERATION_DESCRIPTION"
-                class="inputbox"
-                required="true"
-                default="0"
-                filter="integer"
-                maxlength="10"
+            name="remuneration"
+            type="text"
+            label="COM_AGENTCALC_REMUNERATION_LABEL"
+            description="COM_AGENTCALC_REMUNERATION_DESCRIPTION"
+            class="inputbox"
+            required="true"
+            default="0"
+            filter="integer"
+            maxlength="10"
         />
+        <field
+            name="company_id"
+            type="sql"
+            query="SELECT id, name FROM #__pcpartners_companies"
+            key_field="id"
+            value_field="name"
+            label="Компания"
+            default="0"
+        >
+            <option value="0">Выбрать…</option>
+        </field>
     </fieldset>
 </form>
