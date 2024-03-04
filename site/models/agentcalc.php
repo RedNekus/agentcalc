@@ -38,13 +38,13 @@ class AgentcalcModelAgentcalc extends JModelList {
             ->where("`settings`.term = s.term  AND (s.company_id = {$company_id} OR s.company_id IS NULL)")
             ->order("s.company_id DESC")
             ->setLimit(1);
-
         $subQueryId = $db->getQuery(true)
             ->select("s.id")
             ->from($db->quoteName("#__agentcalc_settings", "s"))
             ->where("`settings`.term = s.term  AND (s.company_id = {$company_id} OR s.company_id IS NULL)")
             ->order("s.company_id DESC")
             ->setLimit(1);
+
         $query = $db->getQuery(true);
         $query->select([
             "($subQueryId) AS id",
