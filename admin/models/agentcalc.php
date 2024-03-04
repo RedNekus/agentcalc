@@ -15,13 +15,17 @@ class AgentcalcModelAgentcalc extends JModelList {
             'settings.term',
             'settings.remuneration'])
         ]);
+        $query->select(
+            'companies.name as company'
+        );
 
         $query->from($db->quoteName('#__agentcalc_settings', 'settings'));
+        $query->join('LEFT', '#__pcpartners_companies AS companies ON companies.id = settings.company_id');
 
         $orderCol	= 'term';
         $orderDirn 	= 'DESC';
 
-        $query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
+        $query->order('company ASC, ' . $db->escape($orderCol) . ' ' . $db->escape($orderDirn));
         return $query;
     }
 }

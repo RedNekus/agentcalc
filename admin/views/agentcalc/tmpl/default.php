@@ -16,6 +16,9 @@ defined('_JEXEC') or exit();
             <th>
                 <?=JText::_('COM_AGENTCALC_SETTINGS_REMUNERATION'); ?>
             </th>
+            <th>
+                <?=JText::_('COM_AGENTCALC_SETTINGS_COMPANY'); ?>
+            </th>
         </tr>
         </thead>
         <tfoot>
@@ -34,6 +37,7 @@ defined('_JEXEC') or exit();
                     <td><?=JHtml::_('grid.id', $i, $item->id)?></td>
                     <td><?=$item->term?></td>
                     <td><?=$item->remuneration?></td>
+                    <td><?=$item->company?></td>
                 </tr>
             <?php } ?>
         <?php } ?>
