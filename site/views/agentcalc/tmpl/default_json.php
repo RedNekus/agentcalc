@@ -9,7 +9,7 @@ if((int)$this->data['price']):
             <td><?=$item->term?></td>
             <td><?=number_format($this->data['price'], 2,"."," ")?></td>
             <td><?=$item->term?></td>
-            <td><?= ( number_format($payment/$item->term) ) ?></td>
+            <td><?= ( number_format($payment/$item->term, 2,"."," ") ) ?></td>
             <td><?= ( number_format($payment, 2,"."," ")) ?></td>
         </tr>
     <?php endforeach;?>
@@ -20,7 +20,7 @@ if((int)$this->data['price']):
             <td>{$item->term}</td>
             <td>" . number_format(  (float)$this->data['prepayment'] + $item->term * $payment / (1 + $item->remuneration*.01), 2,"."," " ) ."</td>
             <td>$item->term</td>
-            <td>$payment</td>
+            <td>" . number_format( (float)$payment, 2,"."," "  ) . "</td>
             <td>" .  number_format( (float)$this->data['prepayment'] + $item->term * $payment, 2,"."," "  ) . "</td>
         </tr>";
      } ?>
