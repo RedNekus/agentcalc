@@ -11,7 +11,7 @@ $wa->useScript('keepalive')
 
 <div class="agentcalc">
     <div class="agentcalc__tabs">
-        <a href="" class="active" data-target="main">Основной калькулятор</a>
+        <a href="" class="active" data-target="main">Основной калькулятор <?=$this->company?> 4</a>
         <a href="" data-target="reverse">Обратный калькулятор</a>
     </div>
     <div class="agentcalc__form">

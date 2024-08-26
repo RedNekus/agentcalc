@@ -3,6 +3,7 @@ defined('_JEXEC') or die('Restricted access');
 
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Factory;
+use Joomla\CMS\User\UserHelper;
 
 class AgentcalcViewAgentcalc extends BaseHtmlView {
     protected $form;
@@ -15,6 +16,10 @@ class AgentcalcViewAgentcalc extends BaseHtmlView {
             return;
         }
         $this->calc = $this->get('Calc');
+        $user = Factory::getApplication()->getIdentity();
+        echo $user->id . '<br>';
+        var_dump(UserHelper::getProfile($user->id));
+        $this->company = UserHelper::getProfile($user->id)->get();
         $this->addScripts();
         parent::display($tpl);
     }
