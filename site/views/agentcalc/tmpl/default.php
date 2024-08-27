@@ -9,13 +9,13 @@ $wa->useScript('keepalive')
     <h1>Страница калькулятора</h1>
 </div>
 
-<div class="agentcalc">
+<div class="agentcalc" id="agentcalc">
     <div class="agentcalc__tabs">
-        <a href="" class="active" data-target="main">Основной калькулятор <?=$this->company?> 4</a>
+        <a href="" class="active" data-target="main">Основной калькулятор</a>
         <a href="" data-target="reverse">Обратный калькулятор</a>
     </div>
     <div class="agentcalc__form">
-        <form action="index.php?option=com_agentcalc&view=agentcalc&format=json" method="POST" id="agetntcalcForm" name="agetntcalcForm" class="form-validate">
+        <form action="index.php?option=com_agentcalc&view=agentcalc&format=json" method="POST" id="agetntcalcForm" name="agetntcalcForm" class="form-validate" data-company="<?=$this->company?>">
             <?php foreach($this->form->getFieldsets() as $name => $fieldset) :?>
                 <fieldset class="<?=$name?>">
                     <?php foreach ($this->form->getFieldset($name) as $field): ?>
@@ -54,6 +54,10 @@ $wa->useScript('keepalive')
             <?php echo Joomla\CMS\HTML\HTMLHelper::_('form.token'); ?>
         </form>
     </div>
+</div>
+
+<div class="agentcalc__container is-hidden">
+    <div class="agentcalc__err" id="agentcalc-err"></div>
 </div>
 
 <table id="credit-table" class="agentcalc__table">

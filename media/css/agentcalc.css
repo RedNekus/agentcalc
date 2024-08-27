@@ -77,7 +77,16 @@
     border-color: white;
     border-width: 3px;
 }
-
+.agentcalc__container {
+    background: #fff;
+    padding: 24px 24px 12px 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 0.75rem 1.5rem rgb(18 38 63 / 3%);
+    border-radius: 6px;
+}
+.agentcalc__container.is-hidden {
+    display: none;
+}
 @media (max-width: 1399px) {}
 @media (max-width: 1199px) {}
 @media screen and  (max-width: 991px) {
