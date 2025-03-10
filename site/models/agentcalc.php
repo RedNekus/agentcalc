@@ -17,6 +17,7 @@ class AgentcalcModelAgentcalc extends JModelList {
     {
         $db     = Factory::getContainer()->get('DatabaseDriver');
         $lead_id = (int)$_REQUEST['lead_id'];
+        $ignore = (bool)$_REQUEST['ignore'] ?? false;
         if(!empty($lead_id)) {
             $userQuery  = $db->getQuery(true);
             $userQuery->select($db->quoteName('agent_id'));
@@ -66,7 +67,7 @@ class AgentcalcModelAgentcalc extends JModelList {
         ]);
 
         $query->from($db->quoteName('#__agentcalc_settings', 'settings'));
-        if($res->max_term) {
+        if($res->max_term && !$ignore) {
             $query->where( $db->quoteName('settings.term') . ' <=' . $res->max_term);
         }
         if ($company_id) {
@@ -85,8 +86,6 @@ class AgentcalcModelAgentcalc extends JModelList {
         } else {
             $query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn) );
         }
-        echo $query->dump();
-        die();
         return $query;
     }
 }
