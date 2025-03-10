@@ -85,8 +85,8 @@ class AgentcalcModelAgentcalc extends JModelList {
         } else {
             $query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn) );
         }
-        //echo $query;
-        //die();
+        echo $query->dump();
+        die();
         return $query;
     }
 }
