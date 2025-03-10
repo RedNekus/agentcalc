@@ -26,6 +26,7 @@ class AgentcalcModelAgentcalc extends JModelList {
         $orderDirn 	= 'DESC';
 
         $query->order('company ASC, ' . $db->escape($orderCol) . ' ' . $db->escape($orderDirn));
+        echo $query->dump();
         return $query;
     }
 
@@ -61,7 +62,6 @@ class AgentcalcModelAgentcalc extends JModelList {
         $orderDirn 	= 'ASC';
 
         $query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
-        echo $query->dump();
         $db->setQuery($query);
         return $db->loadObjectList();
     }
