@@ -61,6 +61,7 @@ class AgentcalcModelAgentcalc extends JModelList {
         $orderDirn 	= 'ASC';
 
         $query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
+        echo $query->dump();
         $db->setQuery($query);
         return $db->loadObjectList();
     }
