@@ -68,7 +68,7 @@ class AgentcalcModelAgentcalc extends JModelList {
 
         $query->from($db->quoteName('#__agentcalc_settings', 'settings'));
         if($res->max_term && !$ignore) {
-            $query->where( $db->quoteName('settings.term') . ' <=' . $res->max_term);
+            $query->where( $db->quoteName('settings.term') . ' <= ' . $res->max_term);
         }
         if ($company_id) {
             $query->where( "(" . $db->quoteName('settings.company_id') . ' =' . $company_id . ' OR ' . $db->quoteName('settings.company_id') . ' IS NULL)');
